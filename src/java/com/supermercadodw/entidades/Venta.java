@@ -1,5 +1,5 @@
 package com.supermercadodw.entidades;
-// Generated 08/07/2018 09:17:20 PM by Hibernate Tools 4.3.1
+// Generated 08/07/2018 09:58:56 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -17,7 +17,7 @@ public class Venta  implements java.io.Serializable {
      private Personal personal;
      private Date fechaVenta;
      private Float montoVenta;
-     private Set detalleproductos = new HashSet(0);
+     private Set detalleProductos = new HashSet(0);
 
     public Venta() {
     }
@@ -28,13 +28,13 @@ public class Venta  implements java.io.Serializable {
         this.cliente = cliente;
         this.personal = personal;
     }
-    public Venta(int idVenta, Cliente cliente, Personal personal, Date fechaVenta, Float montoVenta, Set detalleproductos) {
+    public Venta(int idVenta, Cliente cliente, Personal personal, Date fechaVenta, Float montoVenta, Set detalleProductos) {
        this.idVenta = idVenta;
        this.cliente = cliente;
        this.personal = personal;
        this.fechaVenta = fechaVenta;
        this.montoVenta = montoVenta;
-       this.detalleproductos = detalleproductos;
+       this.detalleProductos = detalleProductos;
     }
    
     public int getIdVenta() {
@@ -72,12 +72,12 @@ public class Venta  implements java.io.Serializable {
     public void setMontoVenta(Float montoVenta) {
         this.montoVenta = montoVenta;
     }
-    public Set getDetalleproductos() {
-        return this.detalleproductos;
+    public Set getDetalleProductos() {
+        return this.detalleProductos;
     }
     
-    public void setDetalleproductos(Set detalleproductos) {
-        this.detalleproductos = detalleproductos;
+    public void setDetalleProductos(Set detalleProductos) {
+        this.detalleProductos = detalleProductos;
     }
 
 

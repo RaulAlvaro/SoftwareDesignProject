@@ -43,13 +43,14 @@ Contributor(s):
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/tiendabd?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/TiendaBD</property>
     <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">root</property>
     <mapping resource="com/supermercadodw/entidades/Producto.hbm.xml"/>
-    <mapping resource="com/supermercadodw/entidades/Personal.hbm.xml"/>
-    <mapping resource="com/supermercadodw/entidades/Tarjeta.hbm.xml"/>
     <mapping resource="com/supermercadodw/entidades/Cliente.hbm.xml"/>
-    <mapping resource="com/supermercadodw/entidades/Detalleproducto.hbm.xml"/>
     <mapping resource="com/supermercadodw/entidades/Venta.hbm.xml"/>
+    <mapping resource="com/supermercadodw/entidades/Tarjeta.hbm.xml"/>
+    <mapping resource="com/supermercadodw/entidades/DetalleProducto.hbm.xml"/>
+    <mapping resource="com/supermercadodw/entidades/Personal.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

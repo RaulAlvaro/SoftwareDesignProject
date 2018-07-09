@@ -1,5 +1,5 @@
 package com.supermercadodw.entidades;
-// Generated 08/07/2018 09:17:20 PM by Hibernate Tools 4.3.1
+// Generated 08/07/2018 09:58:56 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -16,7 +16,7 @@ public class Producto  implements java.io.Serializable {
      private Float precioProducto;
      private String descripcionProducto;
      private Integer cantidadProducto;
-     private Set detalleproductos = new HashSet(0);
+     private Set detalleProductos = new HashSet(0);
 
     public Producto() {
     }
@@ -25,13 +25,13 @@ public class Producto  implements java.io.Serializable {
     public Producto(String idProducto) {
         this.idProducto = idProducto;
     }
-    public Producto(String idProducto, String nombreProducto, Float precioProducto, String descripcionProducto, Integer cantidadProducto, Set detalleproductos) {
+    public Producto(String idProducto, String nombreProducto, Float precioProducto, String descripcionProducto, Integer cantidadProducto, Set detalleProductos) {
        this.idProducto = idProducto;
        this.nombreProducto = nombreProducto;
        this.precioProducto = precioProducto;
        this.descripcionProducto = descripcionProducto;
        this.cantidadProducto = cantidadProducto;
-       this.detalleproductos = detalleproductos;
+       this.detalleProductos = detalleProductos;
     }
    
     public String getIdProducto() {
@@ -69,12 +69,12 @@ public class Producto  implements java.io.Serializable {
     public void setCantidadProducto(Integer cantidadProducto) {
         this.cantidadProducto = cantidadProducto;
     }
-    public Set getDetalleproductos() {
-        return this.detalleproductos;
+    public Set getDetalleProductos() {
+        return this.detalleProductos;
     }
     
-    public void setDetalleproductos(Set detalleproductos) {
-        this.detalleproductos = detalleproductos;
+    public void setDetalleProductos(Set detalleProductos) {
+        this.detalleProductos = detalleProductos;
     }
 
 

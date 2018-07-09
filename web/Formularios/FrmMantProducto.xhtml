@@ -9,30 +9,38 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <h:form id="formprueba">
-            <p:outputLabel value="Ingrese id del Producto"/>
-            <p:inputText value="#{mantProductoBean.producto.idProducto}"/>
-            
-            <p:outputLabel value="Ingrese nombre del Producto"/>            
-            <p:inputText value="#{mantProductoBean.producto.nombreProducto}"/>
-            
-            <p:outputLabel value="Ingrese precio del Producto"/>            
-            <p:inputText value="#{mantProductoBean.producto.precioProducto}"/>
-            
-            <p:outputLabel value="Ingrese stock del Producto"/>            
-            <p:inputText value="#{mantProductoBean.producto.cantidadProducto}"/>
-            
-            <p:outputLabel value="Ingrese descripcion del Producto"/>            
-            <p:inputText value="#{mantProductoBean.producto.descripcionProducto}"/>
-            
-            <p:commandButton value="Guardar" action="#{mantProductoBean.registrarProducto()}"/>
-            <p:commandButton value="Modificar" action="#{mantProductoBean.modificarProducto()}"/>
-            
-        </h:form>
+
         <h:form id="formsearch">
             <p:outputLabel value="Ingrese id del Producto"/>
             <p:inputText value="#{mantProductoBean.idProductobuscar}"/>  
-            <p:commandButton value="Buscar" action="#{mantProductoBean.buscarProducto()}" update="formsearch, formprueba"/>
+            <p:outputLabel value="nombre del Producto"/>            
+            <p:inputText value="#{mantProductoBean.producto.nombreProducto}"/>
+
+            <p:outputLabel value="precio del Producto"/>            
+            <p:inputText value="#{mantProductoBean.producto.precioProducto}"/>
+            <p:commandButton value="Buscar" action="#{mantProductoBean.buscarProducto()}" update="formsearch" />
+
+        </h:form>
+
+        <h:form id="formprueba1">
+            <p:outputLabel value="Ingrese id del Producto"/>
+            <p:inputText value="#{mantProductoBean.producto.idProducto}"/>
+
+            <p:outputLabel value="Ingrese nombre del Producto"/>            
+            <p:inputText value="#{mantProductoBean.producto.nombreProducto}"/>
+
+            <p:outputLabel value="Ingrese precio del Producto"/>            
+            <p:inputText value="#{mantProductoBean.producto.precioProducto}"/>
+
+            <p:outputLabel value="Ingrese stock del Producto"/>            
+            <p:inputText value="#{mantProductoBean.producto.cantidadProducto}"/>
+
+            <p:outputLabel value="Ingrese descripcion del Producto"/>            
+            <p:inputText value="#{mantProductoBean.producto.descripcionProducto}"/>
+
+            <p:commandButton value="Guardar" action="#{mantProductoBean.registrarProducto()}"/>
+            <p:commandButton value="Modificar" action="#{mantProductoBean.modificarProducto()}"/>
+
         </h:form>
     </h:body>
 </html>

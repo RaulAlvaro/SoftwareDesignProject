@@ -40,11 +40,11 @@ made subject to such option by the copyright holder.
 Contributor(s):
 -->
 <hibernate-reverse-engineering>
-  <schema-selection match-catalog="tiendabd"/>
-  <table-filter match-name="detalleproducto"/>
-  <table-filter match-name="cliente"/>
-  <table-filter match-name="producto"/>
-  <table-filter match-name="venta"/>
-  <table-filter match-name="personal"/>
-  <table-filter match-name="tarjeta"/>
+  <schema-selection match-catalog="TiendaBD"/>
+  <table-filter match-name="Personal"/>
+  <table-filter match-name="Tarjeta"/>
+  <table-filter match-name="Producto"/>
+  <table-filter match-name="DetalleProducto"/>
+  <table-filter match-name="Venta"/>
+  <table-filter match-name="Cliente"/>
 </hibernate-reverse-engineering>

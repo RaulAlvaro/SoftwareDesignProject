@@ -61,7 +61,7 @@ public class ProductoDAO implements ProductoService {
         Producto producto = null;
         session = HibernateUtil.getSessionFactory().openSession();
         try {
-            String queryString = "from Tarjeta where idTarjeta = :idToFind";
+            String queryString = "from Producto where idProducto = :idToFind";
             Query query = session.createQuery(queryString);
             query.setString("idToFind", idProducto);
             producto = (Producto) query.uniqueResult();

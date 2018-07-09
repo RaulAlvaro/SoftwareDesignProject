@@ -1,5 +1,5 @@
 package com.supermercadodw.entidades;
-// Generated 08/07/2018 09:17:20 PM by Hibernate Tools 4.3.1
+// Generated 08/07/2018 09:58:56 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
