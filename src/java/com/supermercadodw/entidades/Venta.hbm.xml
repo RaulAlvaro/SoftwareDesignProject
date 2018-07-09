@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 08/07/2018 09:17:23 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.supermercadodw.entidades.Venta" table="venta" catalog="tiendabd" optimistic-lock="version">
+        <id name="idVenta" type="int">
+            <column name="idVenta" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cliente" class="com.supermercadodw.entidades.Cliente" fetch="select">
+            <column name="Cliente_idCliente" not-null="true" />
+        </many-to-one>
+        <many-to-one name="personal" class="com.supermercadodw.entidades.Personal" fetch="select">
+            <column name="Personal_idPersonal" not-null="true" />
+        </many-to-one>
+        <property name="fechaVenta" type="timestamp">
+            <column name="fechaVenta" length="19" />
+        </property>
+        <property name="montoVenta" type="java.lang.Float">
+            <column name="montoVenta" precision="12" scale="0" />
+        </property>
+        <set name="detalleproductos" table="detalleproducto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Venta_idVenta" not-null="true" />
+            </key>
+            <one-to-many class="com.supermercadodw.entidades.Detalleproducto" />
+        </set>
+    </class>
+</hibernate-mapping>

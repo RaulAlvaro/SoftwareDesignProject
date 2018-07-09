@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 08/07/2018 09:17:23 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.supermercadodw.entidades.Tarjeta" table="tarjeta" catalog="tiendabd" optimistic-lock="version">
+        <id name="idTarjeta" type="int">
+            <column name="idTarjeta" />
+            <generator class="assigned" />
+        </id>
+        <property name="puntosTarjeta" type="java.lang.Integer">
+            <column name="puntosTarjeta" />
+        </property>
+        <set name="clientes" table="cliente" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Tarjeta_idTarjeta" not-null="true" />
+            </key>
+            <one-to-many class="com.supermercadodw.entidades.Cliente" />
+        </set>
+    </class>
+</hibernate-mapping>
