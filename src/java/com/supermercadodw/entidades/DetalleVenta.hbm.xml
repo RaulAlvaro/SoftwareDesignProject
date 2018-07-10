@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 10/07/2018 11:48:39 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated 10/07/2018 12:24:33 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.supermercadodw.entidades.DetalleVenta" table="DetalleVenta" catalog="TiendaBD" optimistic-lock="version">
         <id name="idDetalleVenta" type="java.lang.Integer">
@@ -17,8 +17,8 @@
         <property name="cantidadProductoVenta" type="java.lang.Integer">
             <column name="cantidadProductoVenta" />
         </property>
-        <property name="montoFinalProductoVenta" type="string">
-            <column name="montoFinalProductoVenta" length="45" />
+        <property name="montoFinalProductoVenta" type="java.lang.Float">
+            <column name="montoFinalProductoVenta" precision="12" scale="0" />
         </property>
     </class>
 </hibernate-mapping>

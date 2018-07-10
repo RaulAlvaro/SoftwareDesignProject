@@ -32,6 +32,7 @@ public class MantDetalleVentaBeanTest extends MensajeSYSUtils implements Seriali
     private DetalleVenta detalleVenta;
     private DetalleVentaDAO detalleVentaDAO;
     private int cantProductos;
+    private String idProductoBuscar;
     
     @PostConstruct
     private void init() {
@@ -48,23 +49,15 @@ public class MantDetalleVentaBeanTest extends MensajeSYSUtils implements Seriali
     }
     
     public String registrarDetalleVenta(){
-         boolean respuesta;
+        venta = ventaDAO.buscarVenta();
+        producto = productoDAO.obtenerProducto(idProductoBuscar);
          detalleVenta.setVenta(venta);
          detalleVenta.setProducto(producto);
          detalleVenta.setCantidadProductoVenta(cantProductos);
-         //detalleVenta.setMontoFinalProductoVenta(producto.getPrecioProducto());
-        respuesta = detalleVentaDAO.RegistrarDetalleVenta(detalleVenta);
-        if (respuesta) {
-            messageInfo("Se realizo la creación del Producto");
-        } else {
-            messageError("NO se realizo la creación del Producto");
-        }
-        return "/Formularios/FrmMantProducto";
+         detalleVenta.setMontoFinalProductoVenta(producto.getPrecioProducto()*cantProductos);
+         detalleVentaDAO.RegistrarDetalleVenta(detalleVenta);
+        return "/Formularios/FrmMantDetalleVenta";
     }
-    
-    
-    
-    
 
     public Venta getVenta() {
         return venta;
@@ -89,6 +82,22 @@ public class MantDetalleVentaBeanTest extends MensajeSYSUtils implements Seriali
     public void setDetalleVenta(DetalleVenta detalleVenta) {
         this.detalleVenta = detalleVenta;
     }
-    
+
+    public int getCantProductos() {
+        return cantProductos;
+    }
+
+    public void setCantProductos(int cantProductos) {
+        this.cantProductos = cantProductos;
+    }
+
+    public String getIdProductoBuscar() {
+        return idProductoBuscar;
+    }
+
+    public void setIdProductoBuscar(String idProductoBuscar) {
+        this.idProductoBuscar = idProductoBuscar;
+    }
+
     
 }

@@ -1,5 +1,5 @@
 package com.supermercadodw.entidades;
-// Generated 10/07/2018 11:48:39 AM by Hibernate Tools 4.3.1
+// Generated 10/07/2018 12:24:33 PM by Hibernate Tools 4.3.1
 
 
 
@@ -13,7 +13,7 @@ public class DetalleVenta  implements java.io.Serializable {
      private Producto producto;
      private Venta venta;
      private Integer cantidadProductoVenta;
-     private String montoFinalProductoVenta;
+     private Float montoFinalProductoVenta;
 
     public DetalleVenta() {
     }
@@ -23,7 +23,7 @@ public class DetalleVenta  implements java.io.Serializable {
         this.producto = producto;
         this.venta = venta;
     }
-    public DetalleVenta(Producto producto, Venta venta, Integer cantidadProductoVenta, String montoFinalProductoVenta) {
+    public DetalleVenta(Producto producto, Venta venta, Integer cantidadProductoVenta, Float montoFinalProductoVenta) {
        this.producto = producto;
        this.venta = venta;
        this.cantidadProductoVenta = cantidadProductoVenta;
@@ -58,11 +58,11 @@ public class DetalleVenta  implements java.io.Serializable {
     public void setCantidadProductoVenta(Integer cantidadProductoVenta) {
         this.cantidadProductoVenta = cantidadProductoVenta;
     }
-    public String getMontoFinalProductoVenta() {
+    public Float getMontoFinalProductoVenta() {
         return this.montoFinalProductoVenta;
     }
     
-    public void setMontoFinalProductoVenta(String montoFinalProductoVenta) {
+    public void setMontoFinalProductoVenta(Float montoFinalProductoVenta) {
         this.montoFinalProductoVenta = montoFinalProductoVenta;
     }
 
