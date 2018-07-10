@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 08/07/2018 09:58:56 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 10/07/2018 11:48:39 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.supermercadodw.entidades.Venta" table="Venta" catalog="TiendaBD" optimistic-lock="version">
-        <id name="idVenta" type="int">
+        <id name="idVenta" type="java.lang.Integer">
             <column name="idVenta" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="cliente" class="com.supermercadodw.entidades.Cliente" fetch="select">
-            <column name="Cliente_idCliente" not-null="true" />
+            <column name="Cliente_dniCliente" not-null="true" />
         </many-to-one>
         <many-to-one name="personal" class="com.supermercadodw.entidades.Personal" fetch="select">
             <column name="Personal_idPersonal" not-null="true" />
@@ -20,11 +20,11 @@
         <property name="montoVenta" type="java.lang.Float">
             <column name="montoVenta" precision="12" scale="0" />
         </property>
-        <set name="detalleProductos" table="DetalleProducto" inverse="true" lazy="true" fetch="select">
+        <set name="detalleVentas" table="DetalleVenta" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="Venta_idVenta" not-null="true" />
             </key>
-            <one-to-many class="com.supermercadodw.entidades.DetalleProducto" />
+            <one-to-many class="com.supermercadodw.entidades.DetalleVenta" />
         </set>
     </class>
 </hibernate-mapping>

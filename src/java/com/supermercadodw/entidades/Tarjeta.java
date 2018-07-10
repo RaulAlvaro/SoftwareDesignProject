@@ -1,5 +1,5 @@
 package com.supermercadodw.entidades;
-// Generated 08/07/2018 09:58:56 PM by Hibernate Tools 4.3.1
+// Generated 10/07/2018 11:48:39 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,28 +11,23 @@ import java.util.Set;
 public class Tarjeta  implements java.io.Serializable {
 
 
-     private int idTarjeta;
+     private Integer idTarjeta;
      private Integer puntosTarjeta;
      private Set clientes = new HashSet(0);
 
     public Tarjeta() {
     }
 
-	
-    public Tarjeta(int idTarjeta) {
-        this.idTarjeta = idTarjeta;
-    }
-    public Tarjeta(int idTarjeta, Integer puntosTarjeta, Set clientes) {
-       this.idTarjeta = idTarjeta;
+    public Tarjeta(Integer puntosTarjeta, Set clientes) {
        this.puntosTarjeta = puntosTarjeta;
        this.clientes = clientes;
     }
    
-    public int getIdTarjeta() {
+    public Integer getIdTarjeta() {
         return this.idTarjeta;
     }
     
-    public void setIdTarjeta(int idTarjeta) {
+    public void setIdTarjeta(Integer idTarjeta) {
         this.idTarjeta = idTarjeta;
     }
     public Integer getPuntosTarjeta() {

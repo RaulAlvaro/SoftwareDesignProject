@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 08/07/2018 09:58:56 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 10/07/2018 11:48:39 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.supermercadodw.entidades.Cliente" table="Cliente" catalog="TiendaBD" optimistic-lock="version">
-        <id name="idCliente" type="int">
-            <column name="idCliente" />
+        <id name="dniCliente" type="int">
+            <column name="dniCliente" />
             <generator class="assigned" />
         </id>
         <many-to-one name="tarjeta" class="com.supermercadodw.entidades.Tarjeta" fetch="select">
@@ -23,12 +23,9 @@
         <property name="cantidadPuntos" type="java.lang.Integer">
             <column name="cantidadPuntos" />
         </property>
-        <property name="dniCliente" type="java.lang.Integer">
-            <column name="dniCliente" />
-        </property>
         <set name="ventas" table="Venta" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="Cliente_idCliente" not-null="true" />
+                <column name="Cliente_dniCliente" not-null="true" />
             </key>
             <one-to-many class="com.supermercadodw.entidades.Venta" />
         </set>

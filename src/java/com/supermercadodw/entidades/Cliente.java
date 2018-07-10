@@ -1,5 +1,5 @@
 package com.supermercadodw.entidades;
-// Generated 08/07/2018 09:58:56 PM by Hibernate Tools 4.3.1
+// Generated 10/07/2018 11:48:39 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,40 +11,38 @@ import java.util.Set;
 public class Cliente  implements java.io.Serializable {
 
 
-     private int idCliente;
+     private int dniCliente;
      private Tarjeta tarjeta;
      private String nombreCliente;
      private String apellidoPaternoCliente;
      private String apellidoMaternoCliente;
      private Integer cantidadPuntos;
-     private Integer dniCliente;
      private Set ventas = new HashSet(0);
 
     public Cliente() {
     }
 
 	
-    public Cliente(int idCliente, Tarjeta tarjeta) {
-        this.idCliente = idCliente;
+    public Cliente(int dniCliente, Tarjeta tarjeta) {
+        this.dniCliente = dniCliente;
         this.tarjeta = tarjeta;
     }
-    public Cliente(int idCliente, Tarjeta tarjeta, String nombreCliente, String apellidoPaternoCliente, String apellidoMaternoCliente, Integer cantidadPuntos, Integer dniCliente, Set ventas) {
-       this.idCliente = idCliente;
+    public Cliente(int dniCliente, Tarjeta tarjeta, String nombreCliente, String apellidoPaternoCliente, String apellidoMaternoCliente, Integer cantidadPuntos, Set ventas) {
+       this.dniCliente = dniCliente;
        this.tarjeta = tarjeta;
        this.nombreCliente = nombreCliente;
        this.apellidoPaternoCliente = apellidoPaternoCliente;
        this.apellidoMaternoCliente = apellidoMaternoCliente;
        this.cantidadPuntos = cantidadPuntos;
-       this.dniCliente = dniCliente;
        this.ventas = ventas;
     }
    
-    public int getIdCliente() {
-        return this.idCliente;
+    public int getDniCliente() {
+        return this.dniCliente;
     }
     
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
+    public void setDniCliente(int dniCliente) {
+        this.dniCliente = dniCliente;
     }
     public Tarjeta getTarjeta() {
         return this.tarjeta;
@@ -80,13 +78,6 @@ public class Cliente  implements java.io.Serializable {
     
     public void setCantidadPuntos(Integer cantidadPuntos) {
         this.cantidadPuntos = cantidadPuntos;
-    }
-    public Integer getDniCliente() {
-        return this.dniCliente;
-    }
-    
-    public void setDniCliente(Integer dniCliente) {
-        this.dniCliente = dniCliente;
     }
     public Set getVentas() {
         return this.ventas;

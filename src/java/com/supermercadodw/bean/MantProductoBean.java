@@ -71,7 +71,6 @@ public class MantProductoBean extends MensajeSYSUtils implements Serializable{
             e.printStackTrace();
             messageError("No se encontro el producto");           
         }
-        //return "/Formularios/FrmMantTarjeta";        
     }
     
     public void listarProductos(){

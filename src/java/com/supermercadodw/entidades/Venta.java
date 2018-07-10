@@ -1,5 +1,5 @@
 package com.supermercadodw.entidades;
-// Generated 08/07/2018 09:58:56 PM by Hibernate Tools 4.3.1
+// Generated 10/07/2018 11:48:39 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -12,36 +12,34 @@ import java.util.Set;
 public class Venta  implements java.io.Serializable {
 
 
-     private int idVenta;
+     private Integer idVenta;
      private Cliente cliente;
      private Personal personal;
      private Date fechaVenta;
      private Float montoVenta;
-     private Set detalleProductos = new HashSet(0);
+     private Set detalleVentas = new HashSet(0);
 
     public Venta() {
     }
 
 	
-    public Venta(int idVenta, Cliente cliente, Personal personal) {
-        this.idVenta = idVenta;
+    public Venta(Cliente cliente, Personal personal) {
         this.cliente = cliente;
         this.personal = personal;
     }
-    public Venta(int idVenta, Cliente cliente, Personal personal, Date fechaVenta, Float montoVenta, Set detalleProductos) {
-       this.idVenta = idVenta;
+    public Venta(Cliente cliente, Personal personal, Date fechaVenta, Float montoVenta, Set detalleVentas) {
        this.cliente = cliente;
        this.personal = personal;
        this.fechaVenta = fechaVenta;
        this.montoVenta = montoVenta;
-       this.detalleProductos = detalleProductos;
+       this.detalleVentas = detalleVentas;
     }
    
-    public int getIdVenta() {
+    public Integer getIdVenta() {
         return this.idVenta;
     }
     
-    public void setIdVenta(int idVenta) {
+    public void setIdVenta(Integer idVenta) {
         this.idVenta = idVenta;
     }
     public Cliente getCliente() {
@@ -72,12 +70,12 @@ public class Venta  implements java.io.Serializable {
     public void setMontoVenta(Float montoVenta) {
         this.montoVenta = montoVenta;
     }
-    public Set getDetalleProductos() {
-        return this.detalleProductos;
+    public Set getDetalleVentas() {
+        return this.detalleVentas;
     }
     
-    public void setDetalleProductos(Set detalleProductos) {
-        this.detalleProductos = detalleProductos;
+    public void setDetalleVentas(Set detalleVentas) {
+        this.detalleVentas = detalleVentas;
     }
 
 

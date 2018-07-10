@@ -50,7 +50,7 @@ Contributor(s):
     <mapping resource="com/supermercadodw/entidades/Cliente.hbm.xml"/>
     <mapping resource="com/supermercadodw/entidades/Venta.hbm.xml"/>
     <mapping resource="com/supermercadodw/entidades/Tarjeta.hbm.xml"/>
-    <mapping resource="com/supermercadodw/entidades/DetalleProducto.hbm.xml"/>
+    <mapping resource="com/supermercadodw/entidades/DetalleVenta.hbm.xml"/>
     <mapping resource="com/supermercadodw/entidades/Personal.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

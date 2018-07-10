@@ -1,5 +1,5 @@
 package com.supermercadodw.entidades;
-// Generated 08/07/2018 09:58:56 PM by Hibernate Tools 4.3.1
+// Generated 10/07/2018 11:48:39 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,7 +11,7 @@ import java.util.Set;
 public class Personal  implements java.io.Serializable {
 
 
-     private int idPersonal;
+     private Integer idPersonal;
      private String nombrePersonal;
      private String apellidoMaternoPersonal;
      private String apellidoPaternoPersonal;
@@ -22,12 +22,7 @@ public class Personal  implements java.io.Serializable {
     public Personal() {
     }
 
-	
-    public Personal(int idPersonal) {
-        this.idPersonal = idPersonal;
-    }
-    public Personal(int idPersonal, String nombrePersonal, String apellidoMaternoPersonal, String apellidoPaternoPersonal, String usuarioPersonal, String passwordPersonal, Set ventas) {
-       this.idPersonal = idPersonal;
+    public Personal(String nombrePersonal, String apellidoMaternoPersonal, String apellidoPaternoPersonal, String usuarioPersonal, String passwordPersonal, Set ventas) {
        this.nombrePersonal = nombrePersonal;
        this.apellidoMaternoPersonal = apellidoMaternoPersonal;
        this.apellidoPaternoPersonal = apellidoPaternoPersonal;
@@ -36,11 +31,11 @@ public class Personal  implements java.io.Serializable {
        this.ventas = ventas;
     }
    
-    public int getIdPersonal() {
+    public Integer getIdPersonal() {
         return this.idPersonal;
     }
     
-    public void setIdPersonal(int idPersonal) {
+    public void setIdPersonal(Integer idPersonal) {
         this.idPersonal = idPersonal;
     }
     public String getNombrePersonal() {

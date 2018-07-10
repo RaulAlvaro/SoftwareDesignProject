@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form id="formsearch">
+            <p:outputLabel value="Ingrese usuario del Personal"/>
+            <p:inputText value="#{mantPersonalBean.usuarioPersonal}"/>  
+            
+            <p:outputLabel value="Ingrese el password del Personal"/>
+            <p:inputText value="#{mantPersonalBean.passwordPersonal}"/>  
+            
+            <p:outputLabel value="nombre del Personal"/>            
+            <p:inputText value="#{mantPersonalBean.personal.nombrePersonal}"/>
+
+            <p:outputLabel value="apellidos del Producto"/>            
+            <p:inputText value="#{mantPersonalBean.personal.apellidoPaternoPersonal}"/>
+            <p:commandButton value="Buscar" action="#{mantPersonalBean.identificarPersonal()}" update="formsearch" />
+
+        </h:form>
+
+        <h:form id="formprueba1">
+            <p:outputLabel value="Ingrese id del Personal"/>
+            <p:inputText value="#{mantPersonalBean.personal.idPersonal}"/>
+
+            <p:outputLabel value="Ingrese los nombre del Personal"/>            
+            <p:inputText value="#{mantPersonalBean.personal.nombrePersonal}"/>
+
+            <p:outputLabel value="Ingrese el apellido paterno del Personal"/>            
+            <p:inputText value="#{mantPersonalBean.personal.apellidoPaternoPersonal}"/>
+
+            <p:outputLabel value="Ingrese el apellido materno del Personal"/>            
+            <p:inputText value="#{mantPersonalBean.personal.apellidoMaternoPersonal}"/>
+
+            <p:outputLabel value="Ingrese el usuario del Personal"/>            
+            <p:inputText value="#{mantPersonalBean.personal.usuarioPersonal}"/>
+            
+            <p:outputLabel value="Ingrese el password del Personal"/>            
+            <p:inputText value="#{mantPersonalBean.personal.passwordPersonal}"/>
+
+            <p:commandButton value="Guardar" action="#{mantPersonalBean.registrarPersonal()}"/>
+            <p:commandButton value="Modificar" action="#{mantPersonalBean.modificarPersonal()}"/>
+
+        </h:form>
+    </h:body>
+</html>
+
