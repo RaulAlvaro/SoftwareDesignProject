@@ -16,6 +16,7 @@ public interface ProductoService {
     public abstract boolean RegistrarProducto(Producto producto);
     public abstract boolean ModificarProducto(Producto producto);
     public abstract Producto obtenerProducto(String idProducto);
+    public abstract Producto obtenerProductoPorNombre(String nombreProducto);
     public abstract List<Producto> ListarProductos();
     public abstract boolean EliminarProducto(String idProducto);
     

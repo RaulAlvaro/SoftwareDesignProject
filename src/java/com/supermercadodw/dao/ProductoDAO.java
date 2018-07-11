@@ -109,4 +109,22 @@ public class ProductoDAO implements ProductoService {
         }
     }
 
+    @Override
+    public Producto obtenerProductoPorNombre(String nombreProducto) {
+        Producto producto = null;
+        session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            String queryString = "from Producto where nombreProducto = :idToFind";
+            Query query = session.createQuery(queryString);
+            query.setString("idToFind", nombreProducto);
+            producto = (Producto) query.uniqueResult();
+            return producto;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
+
 }

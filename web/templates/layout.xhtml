@@ -1,12 +1,115 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet library="css" name="default.css"/>
+        <h:outputStylesheet library="css" name="cssLayout.css"/>
+        <script type="text/javascript">
+                PrimeFaces.locales['es'] = {
+                    closeText: 'Cerrar',
+                    prevText: 'Anterior',
+                    nextText: 'Siguiente',
+                    monthNames: ['Enero','Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                    monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
+                    dayNames: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
+                    dayNamesShort: ['Dom','Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+                    dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sa'],
+                    weekHeader: 'Semana',
+                    firstDay: 1,
+                    isRTL: false,
+                    showMonthAfterYear: false,
+                    yearSuffix: '',
+                    timeOnlyTitle: 'Sólo hora',
+                    timeText: 'Tiempo',
+                    hourText: 'Hora',
+                    minuteText: 'Minuto',
+                    secondText: 'Segundo',
+                    currentText: 'Fecha actual',
+                    ampm: false,
+                    month: 'Mes',
+                    week: 'Semana',
+                    day: 'Día',
+                    allDayText : 'Todo el día'
+                };
+             </script>
+        <title>Administrador</title>
     </h:head>
+
     <h:body>
-        Hello from Facelets
+        
+        <div id="top" class="top">   
+            <h1>Modulo de Administrador</h1>
+            <h:form>              
+                <div id="divInicioSesion">
+                    <span>                                                            
+                    <h:panelGrid id="panellogin" columns="4" cellpadding="0" cellspacing="3" border="0" width="100%">
+                        <p:outputLabel  value="Empresa: " style="font-family: arial;font-size: 9px;text-align: right;font-weight: bold" />
+                        <p:outputLabel  value="Supermercado Nacional de Lima S.A.C" style="font-family: arial;font-size: 9px;text-align: left" />
+                        <p:outputLabel  value="Perfil: " style="font-family: arial;font-size: 9px;text-align: right;font-weight: bold" />
+                        <p:outputLabel  value="#{mantUsuarioMBR.varGNomperfil}" style="font-family: arial;font-size: 9px;text-align: left" />                        
+                    </h:panelGrid>    
+                    <h:panelGrid id="panellogin2" columns="4" cellpadding="0" cellspacing="3" border="0" width="100%">    
+                        <p:outputLabel  value="Usuario: " style="font-family: arial;font-size: 9px;text-align: right;font-weight: bold" />
+                        <p:outputLabel  value="#{mantUsuarioMBR.varGNomusu ==null ? 'Anónimo' : mantUsuarioMBR.varGNomusu}" style="font-family: arial;font-size: 9px;text-align: left" />                        
+                        <p:commandButton value="Cerrar Sesión" style="font-family: arial;font-size: 9px;color: #000000" action="#{mantUsuarioMBR.salirSistema()}"/>    
+                        <p:clock pattern="dd/MM/yyyy HH:mm:ss" mode="server"/>
+                    </h:panelGrid>
+                    </span>   
+                </div>
+                <p:megaMenu id="headerMenu">
+                <p:submenu label="Mantenimientos A" icon="ui-icon-check" styleClass="subMenu">
+                    <p:column styleClass="headerColumn">
+                        <p:submenu label="INDEPENDIENTES">
+                            <p:menuitem value="Formulario Cargo" action="/FORMULARIOS/FrmManttoCargo.xhtml" />
+                            <p:menuitem value="Formulario Perfil de Usuario" action="/FORMULARIOS/FrmManttoPerfilusuario.xhtml" />
+                            <p:menuitem value="Formulario Tipodocumento" action="/FORMULARIOS/FrmManttoTipodocumento.xhtml" />
+                        </p:submenu>
+                        
+                    </p:column>
+                </p:submenu>
+
+                <p:submenu label="Mantenimientos B" icon="ui-icon-document" styleClass="subMenu">
+                    <p:column styleClass="headerColumn">
+                       <p:submenu label="DEPENDIENTES">
+                            <p:menuitem value="Formulario Personal" action="/FORMULARIOS/FrmManttoPersonal.xhtml" />
+                            <p:menuitem value="Formulario Cliente" action="/FORMULARIOS/FrmManttoCliente.xhtml" />
+                            <p:menuitem value="Formulario Usuario" action="/FORMULARIOS/FrmManttoUsuario.xhtml" />                        
+                        </p:submenu>     
+                    </p:column>
+                </p:submenu>
+
+                    
+                <p:submenu label="Acerca de:" icon="ui-icon-contact" styleClass="subMenu">
+                    <p:column styleClass="headerColumn">
+                        <p:submenu label="Extras">
+                            <p:menuitem value="Llamanos" url="#" />
+                        </p:submenu>
+                    </p:column>
+                </p:submenu>
+            </p:megaMenu>         
+            </h:form>                
+            <ui:insert name="top">               
+            </ui:insert>             
+        </div>
+        <div>
+            <div id="left" class="left_content">
+                <ui:insert name="left">Left</ui:insert>
+            </div>
+            <div id="right" class="right_content">
+                <ui:insert name="right">Right</ui:insert>
+            </div>            
+            <div id="content" class="center_content">
+                <ui:insert name="content">Content</ui:insert>
+            </div>
+            
+            <div id="content" class="left_content">
+                <ui:insert name="contentp"></ui:insert>
+            </div>
+        </div>        
     </h:body>
 </html>
 

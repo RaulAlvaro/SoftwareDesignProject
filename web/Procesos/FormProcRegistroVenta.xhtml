@@ -9,7 +9,108 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        
+        <ui:composition template="./../templates/layout.xhtml">
+            <ui:define name="content">
+                <div align="center" >
+                    <h:form id="form1">
+                        <p:growl id="growl" showDetail="true" sticky="false"/>
+                        <p:panel style="margin-top:2%;width: 60%;">
+
+                            <f:facet name="header">
+                                <p:row>
+                                    <p:column colspan="6">
+                                        <h:outputText value="VENTA DE PRODUCTOS" style="font-size: 15px;text-decoration: underline"/>
+                                    </p:column>
+                                </p:row>
+                            </f:facet>
+
+                            <p:panelGrid  id="panelinfoemp" columns="2" style="align-content: center">
+                                <p:column>
+                                    <p:autoComplete id="dd" dropdown="true" value="#{procVentaBean.nombreProductoBuscar}" completeMethod="#{procVentaBean.completeProduct}" />
+                                </p:column>
+                                <p:column>
+                                    <p:commandButton value="Agregar Producto" action="#{procVentaBean.addDetalleVenta()}" update=":form1,:frmListaTCargo" icon="ui-icon-document"  style="font-family: arial;font-size: 11px;"/>
+                                </p:column>
+                            </p:panelGrid>
+
+                        </p:panel>
+                    </h:form>
+
+                    <h:form id="frmListaTCargo" style="padding-top: 4em">
+                        <p:growl id="msgs" showDetail="true"/>
+                        <p:panel id="paneltable">
+                            
+                            <p:remoteCommand name="onCellEdit" action="#{procVentaBean.onCellEdit}" update="frmListaTCargo" />
+
+                            <p:dataTable id="cars1" var="item" value="#{procVentaBean.listaDetalleVenta}" editable="true" sortBy="#{item.montoFinalProductoVenta}" editMode="cell" style="margin-bottom:20px">
+                                <f:facet name="header">
+                                    Lista de Compras
+                                </f:facet>
+
+                                <p:ajax event="cellEdit" oncomplete="#{onCellEdit}"/>
+
+                                <p:column headerText="Código">
+                                    <h:outputText value="#{item.producto.idProducto}"/>
+                                </p:column>
+
+                                <p:column headerText="Nombre del Producto">
+                                    <h:outputText value="#{item.producto.nombreProducto}"/>
+                                </p:column>
+
+                                <p:column headerText="Cantidad">
+                                    <p:cellEditor>
+                                        <f:facet name="output"><h:outputText value="#{item.cantidadProductoVenta}" /></f:facet>
+                                        <f:facet name="input"><p:inputText id="modelInput" value="#{item.cantidadProductoVenta}" style="width:100%"/></f:facet>
+                                    </p:cellEditor>
+                                </p:column>
+
+                                <p:column headerText="Precio">
+                                    <h:outputText value="#{item.producto.precioProducto}"/>
+                                </p:column>
+                                
+                                <p:column headerText="Precio">
+                                    <h:outputText value="#{item.montoFinalProductoVenta}"/>
+                                </p:column>
+                                <!--
+                                <p:column headerText="Subtotal">
+                                    <p:cellEditor>
+                                        <f:facet name="output"><h:outputText value="#{item.montoFinalProductoVenta}" /></f:facet>
+                                        <f:facet name="input"><p:inputText id="modelInput1" value="#{item.montoFinalProductoVenta}" style="width:100%"/></f:facet>
+                                    </p:cellEditor>
+                                </p:column>
+                                -->
+                                
+                                <!--
+                                <p:summaryRow>
+                                    <p:column colspan="4" style="text-align:right">
+                                        <h:outputText value="Total:" />
+                                    </p:column>
+                                    <p:column>
+                                        <h:outputText value="#{procVentaBean.montoFinalVenta}">
+                                        </h:outputText>
+                                    </p:column>
+                                </p:summaryRow>
+                                -->
+                                
+                            </p:dataTable>
+
+                        </p:panel>
+
+                    </h:form>
+
+                    <h:form style="padding-top: 2em;">
+                        <p:commandButton value="emPago con Efectivo" action="#{mantCargoMBR.limpiarcajas()}" update=":form1,:frmListaTCargo" icon="ui-icon-document"  style="font-family: arial;font-size: 11px;"/>
+
+                        <p:commandButton value="Pago con Puntos" action="#{mantCargoMBR.limpiarcajas()}" update=":form1,:frmListaTCargo" icon="ui-icon-document"  style="font-family: arial;font-size: 11px;"/>
+                        
+                        <p:commandButton value="Imprimir DetalleVenta" action="#{procVentaBean.imprimirDetalle()}" update=":form1,:frmListaTCargo" icon="ui-icon-document"  style="font-family: arial;font-size: 11px;"/>
+                    </h:form>
+
+                </div>
+            </ui:define>
+            <ui:define name="left">
+            </ui:define>
+        </ui:composition>
     </h:body>
 </html>
 

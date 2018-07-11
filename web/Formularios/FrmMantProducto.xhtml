@@ -13,12 +13,21 @@
         <h:form id="formsearch">
             <p:outputLabel value="Ingrese id del Producto"/>
             <p:inputText value="#{mantProductoBean.idProductobuscar}"/>  
-            <p:outputLabel value="nombre del Producto"/>            
-            <p:inputText value="#{mantProductoBean.producto.nombreProducto}"/>
-
+            
+            <p:outputLabel value="Ingrese el nombre del Producto"/>            
+            <p:inputText value="#{mantProductoBean.nombreProductoBuscar}"/>
+            
+            <p:outputLabel value="id del Producto"/>            
+            <p:inputText value="#{mantProductoBean.producto.idProducto}"/>
+            
             <p:outputLabel value="precio del Producto"/>            
             <p:inputText value="#{mantProductoBean.producto.precioProducto}"/>
+            
+            <p:outputLabel value="descripcion del Producto"/>            
+            <p:inputText value="#{mantProductoBean.producto.descripcionProducto}"/>
+            
             <p:commandButton value="Buscar" action="#{mantProductoBean.buscarProducto()}" update="formsearch" />
+            <p:commandButton value="Buscar por Nombre" action="#{mantProductoBean.buscarProductoPorNombre()}" update="formsearch" />
 
         </h:form>
 

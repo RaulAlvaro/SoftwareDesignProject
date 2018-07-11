@@ -27,6 +27,7 @@ public class MantProductoBean extends MensajeSYSUtils implements Serializable{
     
     private String idProductobuscar;
     private String idProductoEliminar;
+    private String nombreProductoBuscar;
     private Producto producto;
     private ProductoDAO productoDAO;
     private List<Producto> listadoProductos;
@@ -67,6 +68,15 @@ public class MantProductoBean extends MensajeSYSUtils implements Serializable{
     public void buscarProducto(){
         try {
             producto = productoDAO.obtenerProducto(idProductobuscar);
+        } catch (Exception e) {
+            e.printStackTrace();
+            messageError("No se encontro el producto");           
+        }
+    }
+    
+    public void buscarProductoPorNombre(){
+        try {
+            producto = productoDAO.obtenerProductoPorNombre(nombreProductoBuscar);
         } catch (Exception e) {
             e.printStackTrace();
             messageError("No se encontro el producto");           
@@ -124,6 +134,14 @@ public class MantProductoBean extends MensajeSYSUtils implements Serializable{
 
     public void setListadoProductos(List<Producto> listadoProductos) {
         this.listadoProductos = listadoProductos;
+    }
+
+    public String getNombreProductoBuscar() {
+        return nombreProductoBuscar;
+    }
+
+    public void setNombreProductoBuscar(String nombreProductoBuscar) {
+        this.nombreProductoBuscar = nombreProductoBuscar;
     }
     
     
