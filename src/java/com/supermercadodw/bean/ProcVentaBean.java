@@ -103,6 +103,7 @@ public class ProcVentaBean {
         DetalleVenta detVenta = new DetalleVenta();
         for (Producto productoi : listaProductos) {
             if (nombreProductoBuscar.equals(productoi.getNombreProducto())) {
+                detVenta.setIdDetalleVenta(0);
                 detVenta.setProducto(productoi);
                 detVenta.setCantidadProductoVenta(cantidad);
                 detVenta.setMontoFinalProductoVenta(productoi.getPrecioProducto() * cantidad);
@@ -110,33 +111,54 @@ public class ProcVentaBean {
         }
         listaDetalleVenta.add(detVenta);
     }
-    
-    public Float getmontoFinalVenta(){
-        Float montofinal=0f;
+
+    public Float getmontoFinalVenta() {
+        Float montofinal = 0f;
         for (DetalleVenta detalleVentai : listaDetalleVenta) {
             montofinal = montofinal + detalleVentai.getMontoFinalProductoVenta();
         }
         return montofinal;
     }
 
-    public void onCellEdit(CellEditEvent event) {        
+    public void onCellEdit(CellEditEvent event) {
+
+        System.out.println(event.getOldValue());
+        System.out.println((Integer) event.getNewValue());
+        System.out.println(event.getRowIndex());
+
+        listaDetalleVenta.get(event.getRowIndex()).setCantidadProductoVenta((Integer) event.getNewValue());
+        Float precio = listaDetalleVenta.get(event.getRowIndex()).getProducto().getPrecioProducto();
+        listaDetalleVenta.get(event.getRowIndex()).setMontoFinalProductoVenta(precio * (Integer) event.getNewValue());
+
+        /*
         DetalleVenta detalleVentaold = (DetalleVenta) event.getOldValue();
         DetalleVenta detalleVentanew = (DetalleVenta) event.getNewValue();
-         
+        
+        FacesContext context = FacesContext.getCurrentInstance(); 
+        context.addMessage(null, new FacesMessage("Successful",  "Your message: " + "ALVVV") );
+        
         if(detalleVentanew != null && !detalleVentanew.equals(detalleVentaold)) {
             for (DetalleVenta detalleVenta1 : listaDetalleVenta) {
                 if (detalleVentaold.getProducto().getIdProducto().equals(detalleVenta1.getProducto().getIdProducto())) {
                     detalleVenta1.setCantidadProductoVenta(detalleVentanew.getCantidadProductoVenta());
                     System.out.println("precio nuevo es: " + detalleVentanew.getCantidadProductoVenta());
+                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Update Montofinal", 
+                            detalleVentanew.getCantidadProductoVenta().toString()));
+                    
+                    
                     detalleVenta1.setMontoFinalProductoVenta(detalleVentanew.getCantidadProductoVenta()*detalleVentanew.getProducto().getPrecioProducto());
                     System.out.println("el monto final es: " + detalleVenta1.getMontoFinalProductoVenta());
+                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Update Montofinal", 
+                            detalleVenta1.getMontoFinalProductoVenta().toString()));
+
                 }
             }
         }
         //return "/Procesos/FormProcRegistroVenta";
+         */
     }
-    
-    public void imprimirDetalle(){
+
+    public void imprimirDetalle() {
         for (DetalleVenta detalleVenta1 : listaDetalleVenta) {
             System.out.println(detalleVenta1.getProducto().getNombreProducto());
             System.out.println(detalleVenta1.getCantidadProductoVenta());
@@ -214,6 +236,8 @@ public class ProcVentaBean {
 
     public void setListanombreProductos(List<String> listanombreProductos) {
         this.listanombreProductos = listanombreProductos;
-    }
+    } 
+    
+    
 
 }
