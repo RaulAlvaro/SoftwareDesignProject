@@ -1,5 +1,5 @@
 package com.supermercadodw.entidades;
-// Generated 10/07/2018 12:24:33 PM by Hibernate Tools 4.3.1
+// Generated 11/07/2018 01:39:17 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;

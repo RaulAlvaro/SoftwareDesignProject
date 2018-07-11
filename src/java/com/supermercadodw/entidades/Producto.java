@@ -1,5 +1,5 @@
 package com.supermercadodw.entidades;
-// Generated 10/07/2018 12:24:33 PM by Hibernate Tools 4.3.1
+// Generated 11/07/2018 01:39:17 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -16,6 +16,7 @@ public class Producto  implements java.io.Serializable {
      private Float precioProducto;
      private String descripcionProducto;
      private Integer cantidadProducto;
+     private Integer cantidadPuntos;
      private Set detalleVentas = new HashSet(0);
 
     public Producto() {
@@ -25,12 +26,13 @@ public class Producto  implements java.io.Serializable {
     public Producto(String idProducto) {
         this.idProducto = idProducto;
     }
-    public Producto(String idProducto, String nombreProducto, Float precioProducto, String descripcionProducto, Integer cantidadProducto, Set detalleVentas) {
+    public Producto(String idProducto, String nombreProducto, Float precioProducto, String descripcionProducto, Integer cantidadProducto, Integer cantidadPuntos, Set detalleVentas) {
        this.idProducto = idProducto;
        this.nombreProducto = nombreProducto;
        this.precioProducto = precioProducto;
        this.descripcionProducto = descripcionProducto;
        this.cantidadProducto = cantidadProducto;
+       this.cantidadPuntos = cantidadPuntos;
        this.detalleVentas = detalleVentas;
     }
    
@@ -68,6 +70,13 @@ public class Producto  implements java.io.Serializable {
     
     public void setCantidadProducto(Integer cantidadProducto) {
         this.cantidadProducto = cantidadProducto;
+    }
+    public Integer getCantidadPuntos() {
+        return this.cantidadPuntos;
+    }
+    
+    public void setCantidadPuntos(Integer cantidadPuntos) {
+        this.cantidadPuntos = cantidadPuntos;
     }
     public Set getDetalleVentas() {
         return this.detalleVentas;

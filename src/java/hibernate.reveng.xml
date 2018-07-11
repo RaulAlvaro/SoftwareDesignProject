@@ -41,10 +41,10 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="TiendaBD"/>
-  <table-filter match-name="Tarjeta"/>
-  <table-filter match-name="DetalleVenta"/>
-  <table-filter match-name="Producto"/>
-  <table-filter match-name="Cliente"/>
-  <table-filter match-name="Personal"/>
   <table-filter match-name="Venta"/>
+  <table-filter match-name="Cliente"/>
+  <table-filter match-name="Tarjeta"/>
+  <table-filter match-name="Producto"/>
+  <table-filter match-name="DetalleVenta"/>
+  <table-filter match-name="Personal"/>
 </hibernate-reverse-engineering>

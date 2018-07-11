@@ -9,19 +9,25 @@ import com.supermercadodw.dao.ClienteDAO;
 import com.supermercadodw.dao.DetalleVentaDAO;
 import com.supermercadodw.dao.PersonalDAO;
 import com.supermercadodw.dao.ProductoDAO;
+import com.supermercadodw.dao.TarjetaDAO;
 import com.supermercadodw.dao.VentaDAO;
 import com.supermercadodw.entidades.Cliente;
 import com.supermercadodw.entidades.DetalleVenta;
 import com.supermercadodw.entidades.Personal;
 import com.supermercadodw.entidades.Producto;
+import com.supermercadodw.entidades.Tarjeta;
 import com.supermercadodw.entidades.Venta;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import org.primefaces.PrimeFaces;
 import org.primefaces.event.CellEditEvent;
 
 /**
@@ -36,6 +42,7 @@ public class ProcVentaBean {
     private Cliente cliente;
     private Venta venta;
     private Producto producto;
+    private Tarjeta tarjeta;
     private DetalleVenta detalleVenta;
     private List<DetalleVenta> listaDetalleVenta;
     private List<Producto> listaProductos;
@@ -45,11 +52,13 @@ public class ProcVentaBean {
     private VentaDAO ventaDAO;
     private ProductoDAO productoDAO;
     private DetalleVentaDAO detalleVentaDAO;
+    private TarjetaDAO tarjetaDAO;
 
     private String nombreProductoBuscar;
     private List<String> listanombreProductos;
     private List<String> results;
-
+    private int dniClienteBuscar;
+    
     @PostConstruct
     private void init() {
         initInstancia();
@@ -111,6 +120,32 @@ public class ProcVentaBean {
         }
         listaDetalleVenta.add(detVenta);
     }
+    
+    public void pagoconPuntos(){
+        boolean respuesta= false;
+        personal = personalDAO.obtenerPersonal("raul", "vidal");
+        venta.setCliente(cliente);
+        venta.setPersonal(personal);
+        venta.setMontoVenta(getmontoFinalVenta());
+        venta.setFechaVenta(obtenerFechayHora());
+        
+        respuesta = ventaDAO.RegistrarVenta(venta);
+        
+        for (DetalleVenta detalleVentai : listaDetalleVenta) {
+            detalleVentai.setIdDetalleVenta(venta.getIdVenta());
+            detalleVentaDAO.RegistrarDetalleVenta(detalleVentai);
+        }
+                
+    }
+    
+    public Date obtenerFechayHora(){
+        //DateFormat hourdateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        //System.out.println(hourdateFormat.format(date));
+        java.util.Date fechaActual = new java.util.Date(); 
+        System.out.println(fechaActual);
+        return fechaActual;
+    }
+    
 
     public Float getmontoFinalVenta() {
         Float montofinal = 0f;
@@ -157,7 +192,16 @@ public class ProcVentaBean {
         //return "/Procesos/FormProcRegistroVenta";
          */
     }
-
+    
+    public void identificarCliente(){
+        try {
+            cliente = clienteDAO.ObtenerCliente(dniClienteBuscar);
+            tarjeta = tarjetaDAO.BuscarTarjeta(cliente.getTarjeta().getIdTarjeta());
+        } catch (Exception e) {
+            e.printStackTrace();        
+        }
+    }
+    
     public void imprimirDetalle() {
         for (DetalleVenta detalleVenta1 : listaDetalleVenta) {
             System.out.println(detalleVenta1.getProducto().getNombreProducto());
@@ -237,6 +281,25 @@ public class ProcVentaBean {
     public void setListanombreProductos(List<String> listanombreProductos) {
         this.listanombreProductos = listanombreProductos;
     } 
+
+    public int getDniClienteBuscar() {
+        return dniClienteBuscar;
+    }
+
+    public void setDniClienteBuscar(int dniClienteBuscar) {
+        this.dniClienteBuscar = dniClienteBuscar;
+    }
+
+    public Tarjeta getTarjeta() {
+        return tarjeta;
+    }
+
+    public void setTarjeta(Tarjeta tarjeta) {
+        this.tarjeta = tarjeta;
+    }
+
+    
+    
     
     
 

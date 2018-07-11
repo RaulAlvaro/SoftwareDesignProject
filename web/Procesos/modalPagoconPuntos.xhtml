@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Cars</title>
+        <style type="text/css">
+            .ui-widget {
+                font-size: 90%;
+            }
+        </style>
+    </h:head>
+
+    <h:body id="form">
+        <i id="customheader" class="fa fa-fw fa-car" style="display:none"></i>
+
+        <p:row>
+            <p:column>
+                <p:inputText value="#{mantClienteBean.dniClienteBuscar}"/>  
+            </p:column>
+            <p:column>
+                <p:commandButton value="Agregar Producto" action="#{mantClienteBean.identificarCliente()}" update=":form" icon="ui-icon-document"  style="font-family: arial;font-size: 11px;"/>
+            </p:column>
+        </p:row>
+
+        <p:row>
+            <p:inputText value="#{mantClienteBean.cliente.nombreCliente}"/>  
+            <p:inputText value="#{mantClienteBean.cliente.apellidoPaternoCliente}"/>  
+            <p:inputText value="#{mantClienteBean.cliente.apellidoMaternoCliente}"/>  
+            <p:commandButton value="Registrar Venta" action="#{mantClienteBean.identificarCliente()}" update=":form" icon="ui-icon-document"  style="font-family: arial;font-size: 11px;"/>
+        </p:row>
+    </h:body>
+</html>
+

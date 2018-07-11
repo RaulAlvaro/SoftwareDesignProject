@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 10/07/2018 12:24:33 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 11/07/2018 01:39:17 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.supermercadodw.entidades.Producto" table="Producto" catalog="TiendaBD" optimistic-lock="version">
         <id name="idProducto" type="string">
@@ -19,6 +19,9 @@
         </property>
         <property name="cantidadProducto" type="java.lang.Integer">
             <column name="cantidadProducto" />
+        </property>
+        <property name="cantidadPuntos" type="java.lang.Integer">
+            <column name="cantidadPuntos" />
         </property>
         <set name="detalleVentas" table="DetalleVenta" inverse="true" lazy="true" fetch="select">
             <key>

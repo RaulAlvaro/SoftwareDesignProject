@@ -24,7 +24,7 @@
                                 </p:row>
                             </f:facet>
 
-                            <p:panelGrid  id="panelinfoemp" columns="2" style="align-content: center">
+                            <p:panelGrid  id="panelinfoemp" columns="2" style="align-content: center"  styleClass="companyHeaderGrid">
                                 <p:column>
                                     <p:autoComplete id="dd" dropdown="true" value="#{procVentaBean.nombreProductoBuscar}" completeMethod="#{procVentaBean.completeProduct}" />
                                 </p:column>
@@ -72,20 +72,20 @@
                                 <p:column headerText="Subtotal">
                                     <h:outputText value="#{item.montoFinalProductoVenta}"/>
                                 </p:column>
-                              
 
-                                
+
+
                                 <p:summaryRow>
                                     <p:column colspan="4" style="text-align:right">
                                         <h:outputText value="Total:" />
                                     </p:column>
                                     <p:column>
                                         <h:outputText value="#{procVentaBean.montoFinalVenta}">
-                                        <f:convertNumber type="currency" currencySymbol="S./ " />
+                                            <f:convertNumber type="currency" currencySymbol="S./ " />
                                         </h:outputText>
                                     </p:column>
                                 </p:summaryRow>
-                                
+
 
                             </p:dataTable>
 
@@ -93,12 +93,32 @@
 
                     </h:form>
 
+                    <h:form id="form2">
+                        <p:panel>
+                            <f:facet name="header">
+                                <p:row>
+                                    <p:column colspan="6">
+                                        <h:outputText value="Identificar Cliente" style="font-size: 15px;text-decoration: underline"/>
+                                    </p:column>
+                                </p:row>
+                            </f:facet> 
+                            
+                            <p:panelGrid  id="panelinfoemp" columns="2" style="align-content: center"  styleClass="companyHeaderGrid">
+                                <p:column>
+                                    <p:inputText value="#{procVentaBean.dniClienteBuscar}"/>
+                                </p:column>
+                                <p:column>
+                                    <p:commandButton value="Buscar Cliente" action="#{procVentaBean.identificarCliente()}" update=":form2" icon="ui-icon-document"  style="font-family: arial;font-size: 11px;"/>
+                                </p:column>        
+                                <p:outputLabel 
+                                    value="#{procVentaBean.cliente.nombreCliente.concat(' ').concat(procVentaBean.cliente.apellidoPaternoCliente).concat(' ').concat(procVentaBean.cliente.apellidoMaternoCliente) }"/>       
+                            </p:panelGrid>
+                        </p:panel>
+                    </h:form>
+                    
+
                     <h:form style="padding-top: 2em;">
-                        <p:commandButton value="emPago con Efectivo" action="#{mantCargoMBR.limpiarcajas()}" update=":form1,:frmListaTCargo" icon="ui-icon-document"  style="font-family: arial;font-size: 11px;"/>
-
-                        <p:commandButton value="Pago con Puntos" action="#{mantCargoMBR.limpiarcajas()}" update=":form1,:frmListaTCargo" icon="ui-icon-document"  style="font-family: arial;font-size: 11px;"/>
-
-                        <p:commandButton value="Imprimir DetalleVenta" action="#{procVentaBean.imprimirDetalle()}" update=":form1,:frmListaTCargo" icon="ui-icon-document"  style="font-family: arial;font-size: 11px;"/>
+                        <p:commandButton value="Pago con Puntos" actionListener="#{procVentaBean.pagoconPuntos()}" icon="ui-icon-document"  style="font-family: arial;font-size: 11px;"/>
                     </h:form>
 
                 </div>
